@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Work Day Scheduler</title>
+  </head>
+
+  <body>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+    <header class="jumbotron">
+      <h1 class="display-3">Work Day Scheduler</h1>
+      <p class="lead">A simple calendar app for scheduling your work day</p>
+      <!-- Need to add current day and time to the jumbrotron (lines 19-65) -->
+      <script type="text/javascript">
+        $(document).ready(function() {
+          // Making 2 variable month and day
+          var monthNames = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ]; 
+          var dayNames= ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
+
+          // make single object
+          var newDate = new Date();
+          // make current time
+          newDate.setDate(newDate.getDate());
+            // setting date and time
+            $('#Date').html(dayNames[newDate.getDay()] + " " + newDate.getDate() + ' ' + monthNames[newDate.getMonth()] + ' ' + newDate.getFullYear()); 
+            
+          setInterval( function() {
+            // Create a newDate() object and extract the seconds of the current time on the jumbotron
+            var seconds = new Date().getSeconds();
+              // Add a leading zero to seconds value
+              $("#sec").html(( seconds < 10 ? "0" : "" ) + seconds);
+          },1000);
+
+          setInterval( function() {
+            // Create a newDate() object and extract the minutes of the current time on the jumbotron
+            var minutes = new Date().getMinutes();
+              // Add a leading zero to the minutes value
+              $("#min").html(( minutes < 10 ? "0" : "" ) + minutes);
+          },1000);
+
+          setInterval( function() {
+            // Create a newDate() object and extract the hours of the current time on the jumbotron
+            var hours = new Date().getHours();
+              // Add a leading zero to the hours value
+              $("#hours").html(( hours < 10 ? "0" : "" ) + hours);
+          }, 1000); 
+        });
+      </script>
+        <div class="clock">
+          <div id="Date"></div>
+            <ul>
+              <li id="hours"></li>
+              <li id="point">:</li>
+              <li id="min"></li>
+              <li id="point">:</li>
+              <li id="sec"></li>
+            </ul>
+        </div>
+      <!-- End of date and time script (lines 19-65) -->
+      
+    </header>
+
+    <!-- Begins our day calendar -->
+    <div id="calendar">
+      <script type="text/javascript">
+        $('#calendar').fullCalendar({
+          header: {
+            left: 'prev,next today',
+            center: 'addEventButton',
+            right: 'month,agendaWeek,agendaDay,listWeek'
+          },
+          defaultDate: '2018-11-16',
+          navLinks: true,
+          editable: true,
+          eventLimit: true,
+          events: [{
+              title: 'Simple static event',
+              start: '2018-11-16',
+              description: 'Super cool event'
+            },
+      
+          ],
+          customButtons: {
+            addEventButton: {
+              text: 'Add new event',
+              click: function () {
+                var dateStr = prompt('Enter date in YYYY-MM-DD format');
+                var date = moment(dateStr);
+      
+                if (date.isValid()) {
+                  $('#calendar').fullCalendar('renderEvent', {
+                    title: 'Dynamic event',
+                    start: date,
+                    allDay: true
+                  });
+                } else {
+                  alert('Invalid Date');
+                }
+              }
+            }
+          },
+        dayClick: function (date, jsEvent, view) {
+          var date = moment(date);
+      
+          if (date.isValid()) {
+            $('#calendar').fullCalendar('renderEvent', {
+              title: 'Dynamic event from date click',
+              start: date,
+              allDay: true
+            });
+          } else {
+            alert('Invalid');
+          }
+        },
+      });
+      </script>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  </body>
+</html>

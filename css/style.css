@@ -1,0 +1,144 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1;
+    /* adding background color to body to stand out from calendar container */
+    background-color: #CC5500;
+  }
+  
+  textarea {
+    background: transparent;
+    border: none;
+    resize: none;
+    color: #CC5500;
+    border-left: 1px solid black;
+    padding: 10px;
+  }
+  
+  .jumbotron {
+    text-align: center;
+    background-color: rgb(104, 104, 104);
+    color: #CC5500;
+    text-shadow: 0 2px 5px black, 0 3px 6px black, 0 4px 7px black;
+    border-radius: 0;
+    /* adding top border to jumbotron to match body background color */
+    border-top: 10px solid #CC5500;
+    /* changed bottom border color to stand out against body background color and jumbotron background color */
+    border-bottom: 10px solid black;
+  }
+  
+  /* Adding css for the date and time function (lines 31-64) */
+  .clock {
+    width: auto;
+    margin: 0 auto;
+    padding: 30px;
+    color: #cc5500;background:rgb(104, 104, 104);
+    }
+    .clock ul {
+    width: 250px;
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+    text-align: center
+    }
+    
+    .clock ul li {
+    display: inline;
+    font-size: 3em;
+    text-align: center;
+    font-family: "Arial", Helvetica, sans-serif;
+    text-shadow: 0 2px 5px black, 0 3px 6px black, 0 4px 7px black
+    }
+    #Date { 
+    font-family: 'Arial', Helvetica, sans-serif;
+    font-size: 26px;
+    text-align: center;
+    text-shadow: 0 2px 5px black, 0 3px 6px black;
+    padding-bottom: 40px;
+    }
+    
+    #point {
+    position: relative;
+    padding-left: 10px;
+    padding-right: 10px
+    }
+    /* end of time and date css (lines 31-64)
+  
+  /* Beginning of monthly calendar in jumbotron */
+  
+    
+  /* adding container css to stand out against body background color */
+  .calendar {
+    float: middle;
+    margin-top: 20px;
+    width: 700px;
+    height: 700px;
+    background-color: cornsilk;
+    color: black;
+  }
+  
+  .description {
+    white-space: pre-wrap;
+  }
+  
+  .time-block {
+    text-align: center;
+    border-radius: 15px;
+  }
+  
+  .row {
+    white-space: pre-wrap;
+    height: 80px;
+    border-top: 1px solid white;;
+  }
+  
+  .hour {
+    background-color: #ffffff;
+    color: #000000;
+    border-top: 1px dashed #000000;
+  }
+  
+  .past {
+    background-color: #d3d3d3;
+    color: white;
+  }
+  
+  .present {
+    background-color: #ff6961;
+    color: white;
+  }
+  
+  .future {
+    background-color: #77dd77;
+    color: white;
+  }
+  
+  .saveBtn {
+    border-left: 1px solid black;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background-color: #06AED5;
+    color: white;
+  }
+  
+  .saveBtn i:hover {
+    font-size: 20px;
+    transition: all .3s ease-in-out;
+  }
+  
+  /* Need to add a wrapper to ensure screen size responsiveness
+  /*
+    These rules take effect when the browser's width
+    is either 768px or less.
+  */
+  @media screen and (max-width: 768px) {
+    /* The body's bg color will be #333 */
+    body {
+      background-color: #333;
+    }
+    
+      /* The wrapper's width will be 600px */
+      .wrapper {
+        width: 100%;
+      }
+    }
