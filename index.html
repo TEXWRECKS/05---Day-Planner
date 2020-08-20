@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
     <title>Work Day Scheduler</title>
   </head>
@@ -34,220 +35,238 @@
       <!-- Timeblocks go here -->
         <div class="calendar-container">
           <div class="row">
-            <div class="col-md-1 hour">09:00 AM</div>
-            <div class="col-md-10">
-              <textarea id="1" class="textarea"></textarea>
+            <div class="col-md-1 hour p-0">09:00 AM</div>
+            <div class="col-md-10 text p-0">
+              <textarea id="09" class="textarea"></textarea>
             </div>
-            <button id="button1" class="saveBtn">Save</button>
+            <button id="button1" class="col-md-1 saveBtn p-0">Save</button>
           </div>
           <div class="row">
-            <div class="col-md-1 hour">10:00 AM</div>
-            <div class="col-md-10">
-              <textarea id="2" class="textarea"></textarea>
+            <div class="col-md-1 hour p-0">10:00 AM</div>
+            <div class="col-md-10 text p-0">
+              <textarea id="10" class="textarea"></textarea>
             </div>
-            <button id="button2" class="saveBtn">Save</button>
+            <button id="button2" class="col-md-1 saveBtn p-0">Save</button>
           </div>
           <div class="row">
-            <div class="col-md-1 hour">11:00 AM</div>
-            <div class="col-md-10">
-              <textarea id="3" class="textarea"></textarea>
+            <div class="col-md-1 hour p-0">11:00 AM</div>
+            <div class="col-md-10 text p-0">
+              <textarea id="11" class="textarea"></textarea>
             </div>
-            <button id="button3" class="saveBtn">Save</button>
+            <button id="button3" class="col-md-1 saveBtn p-0">Save</button>
           </div>
           <div class="row">
-            <div class="col-md-1 hour">12:00 PM</div>
-            <div class="col-md-10">
-              <textarea id="4" class="textarea"></textarea>
+            <div class="col-md-1 hour p-0">12:00 PM</div>
+            <div class="col-md-10 text p-0">
+              <textarea id="12" class="textarea"></textarea>
             </div>
-            <button id="button4" class="saveBtn">Save</button>
+            <button id="button4" class="col-md-1 saveBtn p-0">Save</button>
           </div>
           <div class="row">
-            <div class="col-md-1 hour">13:00 PM</div>
-            <div class="col-md-10">
-              <textarea id="5" class="textarea"></textarea>
+            <div class="col-md-1 hour p-0">13:00 PM</div>
+            <div class="col-md-10 text p-0">
+              <textarea id="13" class="textarea"></textarea>
             </div>
-            <button id="button5" class="saveBtn">Save</button>
+            <button id="button5" class="col-md-1 saveBtn p-0">Save</button>
           </div>
           <div class="row">
-            <div class="col-md-1 hour">14:00 PM</div>
-            <div class="col-md-10">
-              <textarea id="6" class="textarea"></textarea>
+            <div class="col-md-1 hour p-0">14:00 PM</div>
+            <div class="col-md-10 text p-0">
+              <textarea id="14" class="textarea text"></textarea>
             </div>
-            <button id="button6" class="saveBtn">Save</button>
+            <button id="button6" class="col-md-1 saveBtn p-0">Save</button>
           </div>
           <div class="row">
-            <div class="col-md-1 hour">15:00 PM</div>
-            <div class="col-md-10">
-              <textarea id="7" class="textarea"></textarea>
+            <div class="col-md-1 hour p-0">15:00 PM</div>
+            <div class="col-md-10 text p-0">
+              <textarea id="15" class="textarea"></textarea>
             </div>
-            <button id="button7" class="saveBtn">Save</button>
+            <button id="button7" class="col-md-1 saveBtn p-0">Save</button>
           </div>
           <div class="row">
-            <div class="col-md-1 hour">16:00 PM</div>
-            <div class="col-md-10">
-              <textarea id="8" class="textarea"></textarea>
+            <div class="col-md-1 hour p-0">16:00 PM</div>
+            <div class="col-md-10 text p-0">
+              <textarea id="16" class="textarea"></textarea>
             </div>
-            <button id="button8" class="saveBtn">Save</button>
+            <button id="button8" class="col-md-1 saveBtn p-0">Save</button>
           </div>
           <div class="row">
-            <div class="col-md-1 hour">17:00 PM</div>
-            <div class="col-md-10">
-              <textarea id="9" class="textarea"></textarea>
+            <div class="col-md-1 hour p-0">17:00 PM</div>
+            <div class="col-md-10 text p-0">
+              <textarea id="17" class="textarea"></textarea>
             </div>
-            <button id="button9" class="saveBtn">Save</button>
+            <button id="button9" class="col-md-1 saveBtn p-0">Save</button>
           </div>
         </div>
 
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <!-- Here is our jquery to our calendar text element and our save buttons-->
-    <!-- 9 AM -->
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script type="text/javascript">
-    
+      // Setting the function to change colors on hourly basis
+      var now = moment().format("HH");
+      // Sets the current time variable
+      $(".textarea").each(function () {
+        //variable to compare to the current time
+        var hour = $(this).attr("id");
+          console.log(hour)
+          console.log(now)
+          //conditions to determine what color to display
+          if (hour === now) {
+            $(this).addClass("present");
+            $(this).removeClass("future");
+            $(this).removeClass("past");
+          }
+          else if (hour > now) {
+            $(this).addClass("future");
+            $(this).removeClass("past");
+            $(this).removeClass("present");
+          }
+          else {
+            $(this).addClass("past");
+            $(this).removeClass("future");
+            $(this).removeClass("present");
+            $(this).prop("disabled", true);
+          }
+      });
+    </script>
+
+    <script type="text/javascript">
+    // HERE IS OUR JQUERY and JS FOR OUR CALENDAR TEXT AND SAVE BUTTON ELEMENTS
+      // 9:00 AM JS/JQUERY
       // Creating a variable ("var") which we are naming "key" which we will be using as our key for the text area entry value in the 9:00 AM ("#1") time slot
-      var key = $("#1")
+      var key = $("#09")
         // setting an "on-click" event listener for the save button ("#button1") in the 9:00 AM time slot
         $("#button1").on("click", function(){
           // Setting the variable ("var") which we are naming "firstTimeSlot" which is we are setting as the reference ("=) for any value (".val") inputed  in the 9:00 AM ("#1") time slot
-          var firstTimeSlot = $("#1").val()
-          // saving the entry to local storage upon on-click
-          localStorage.setItem("#1", firstTimeSlot)
-        })
-      // Retrieving the entry from local storage upon page refresh
-      firstTimeSlot = localStorage.getItem("#1");
-      $("#1").text(firstTimeSlot)
-
-
-
-        // setting the key for the text area entry
-        var key2 = $("#2")
-          // setting an "on-click" event listener for the save button in the 10:00 AM time slot
-          $("#button2").on("click", function(){
-            // Setting the variable called "firstTimeSlot" for anything inputed (value) in the 10:00 AM time slot
-            var secondTimeSlot = $("#2").val()
+          var firstTimeSlot = $("#09").val()
             // saving the entry to local storage upon on-click
-            localStorage.setItem("#2", secondTimeSlot)
-          })
+            localStorage.setItem("#09", firstTimeSlot)
+        })
         // Retrieving the entry from local storage upon page refresh
-       secondTimeSlot = localStorage.getItem("#2");
-       $("#2").text(secondTimeSlot)
+        firstTimeSlot = localStorage.getItem("#09");
+        $("#09").text(firstTimeSlot)
 
 
+      // 10:00 AM JS/JQUERY
+      // setting the key for the text area entry
+      var key2 = $("#10")
+        // setting an "on-click" event listener for the save button in the 10:00 AM time slot
+        $("#button2").on("click", function(){
+          // Setting the variable called "firstTimeSlot" for anything inputed (value) in the 10:00 AM time slot
+          var secondTimeSlot = $("#10").val()
+            // saving the entry to local storage upon on-click
+            localStorage.setItem("#10", secondTimeSlot)
+        })
+        // Retrieving the entry from local storage upon page refresh
+        secondTimeSlot = localStorage.getItem("#10");
+        $("#10").text(secondTimeSlot)
 
 
-          // setting the key for the text area entry
-          var key3 = $("#3")
-            // setting an "on-click" event listener for the save button in the 10:00 AM time slot
-            $("#button3").on("click", function(){
-              // Setting the variable called "firstTimeSlot" for anything inputed (value) in the 10:00 AM time slot
-              var thirdTimeSlot = $("#3").val()
-              // saving the entry to local storage upon on-click
-              localStorage.setItem("#3", thirdTimeSlot)
-            })
-          // Retrieving the entry from local storage upon page refresh
-          thirdTimeSlot = localStorage.getItem("#3");
-          $("#3").text(thirdTimeSlot)
+      // 11:00 AM JS/JQUERY
+      // setting the key for the text area entry
+      var key3 = $("#11")
+        // setting an "on-click" event listener for the save button in the 10:00 AM time slot
+        $("#button3").on("click", function(){
+          // Setting the variable called "firstTimeSlot" for anything inputed (value) in the 10:00 AM time slot
+          var thirdTimeSlot = $("#11").val()
+            // saving the entry to local storage upon on-click
+            localStorage.setItem("#11", thirdTimeSlot)
+        })
+        // Retrieving the entry from local storage upon page refresh
+        thirdTimeSlot = localStorage.getItem("#11");
+        $("#11").text(thirdTimeSlot) 
 
 
- 
- 
-
-            // setting the key for the text area entry
-            var key4 = $("#4")
-              // setting an "on-click" event listener for the save button in the 10:00 AM time slot
-              $("#button4").on("click", function(){
-                // Setting the variable called "firstTimeSlot" for anything inputed (value) in the 10:00 AM time slot
-                var fourthTimeSlot = $("#4").val()
-                // saving the entry to local storage upon on-click
-                localStorage.setItem("#4", fourthTimeSlot)
-              })
-            // Retrieving the entry from local storage upon page refresh
-            fourthTimeSlot = localStorage.getItem("#4");
-            $("#4").text(fourthTimeSlot)
-     
+      // 12:00 PM JS/JQUERY
+      // setting the key for the text area entry
+      var key4 = $("#12")
+        // setting an "on-click" event listener for the save button in the 10:00 AM time slot
+        $("#button4").on("click", function(){
+          // Setting the variable called "firstTimeSlot" for anything inputed (value) in the 10:00 AM time slot
+          var fourthTimeSlot = $("#12").val()
+            // saving the entry to local storage upon on-click
+            localStorage.setItem("#12", fourthTimeSlot)
+        })
+        // Retrieving the entry from local storage upon page refresh
+        fourthTimeSlot = localStorage.getItem("#12");
+        $("#12").text(fourthTimeSlot)       
 
 
-       
+      // 13:00 PM JS/JQUERY
+      // setting the key for the text area entry
+      var key5 = $("#13")
+        // setting an "on-click" event listener for the save button in the 10:00 AM time slot
+        $("#button5").on("click", function(){
+          // Setting the variable called "firstTimeSlot" for anything inputed (value) in the 10:00 AM time slot
+          var fifthTimeSlot = $("#13").val()
+            // saving the entry to local storage upon on-click
+            localStorage.setItem("#13", fifthTimeSlot)
+        })
+        // Retrieving the entry from local storage upon page refresh
+        fifthTimeSlot = localStorage.getItem("#13");
+        $("#13").text(fifthTimeSlot)     
 
-              // setting the key for the text area entry
-              var key5 = $("#5")
-                // setting an "on-click" event listener for the save button in the 10:00 AM time slot
-                $("#button5").on("click", function(){
-                  // Setting the variable called "firstTimeSlot" for anything inputed (value) in the 10:00 AM time slot
-                  var fifthTimeSlot = $("#5").val()
-                  // saving the entry to local storage upon on-click
-                  localStorage.setItem("#5", fifthTimeSlot)
-                })
-              // Retrieving the entry from local storage upon page refresh
-              fifthTimeSlot = localStorage.getItem("#5");
-              $("#5").text(fifthTimeSlot)
-         
 
-        
-     
+      // 14:00 PM JS/JQUERY
+      // setting the key for the text area entry
+      var key6 = $("#14")
+        // setting an "on-click" event listener for the save button in the 10:00 AM time slot
+        $("#button6").on("click", function(){
+          // Setting the variable called "firstTimeSlot" for anything inputed (value) in the 10:00 AM time slot
+          var sixthTimeSlot = $("#14").val()
+            // saving the entry to local storage upon on-click
+            localStorage.setItem("#14", sixthTimeSlot)
+        })
+        // Retrieving the entry from local storage upon page refresh
+        sixthTimeSlot = localStorage.getItem("#14");
+        $("#14").text(sixthTimeSlot)
 
-              // setting the key for the text area entry
-              var key6 = $("#6")
-                // setting an "on-click" event listener for the save button in the 10:00 AM time slot
-                $("#button6").on("click", function(){
-                  // Setting the variable called "firstTimeSlot" for anything inputed (value) in the 10:00 AM time slot
-                  var sixthTimeSlot = $("#6").val()
-                  // saving the entry to local storage upon on-click
-                  localStorage.setItem("#6", sixthTimeSlot)
-                })
-              // Retrieving the entry from local storage upon page refresh
-              sixthTimeSlot = localStorage.getItem("#6");
-              $("#6").text(sixthTimeSlot)
-       
 
-       
-        
+      // 15:00 PM JS/JQUERY
+      // setting the key for the text area entry
+      var key7 = $("#15")
+        // setting an "on-click" event listener for the save button in the 10:00 AM time slot
+        $("#button7").on("click", function(){
+          // Setting the variable called "firstTimeSlot" for anything inputed (value) in the 10:00 AM time slot
+          var seventhTimeSlot = $("#15").val()
+            // saving the entry to local storage upon on-click
+            localStorage.setItem("#15", seventhTimeSlot)
+        })
+        // Retrieving the entry from local storage upon page refresh
+        seventhTimeSlot = localStorage.getItem("#15");
+        $("#15").text(seventhTimeSlot)
 
-              // setting the key for the text area entry
-              var key7 = $("#7")
-                // setting an "on-click" event listener for the save button in the 10:00 AM time slot
-                $("#button7").on("click", function(){
-                  // Setting the variable called "firstTimeSlot" for anything inputed (value) in the 10:00 AM time slot
-                  var seventhTimeSlot = $("#7").val()
-                  // saving the entry to local storage upon on-click
-                  localStorage.setItem("#7", seventhTimeSlot)
-                })
-              // Retrieving the entry from local storage upon page refresh
-              seventhTimeSlot = localStorage.getItem("#7");
-              $("#7").text(seventhTimeSlot)
-     
 
-         
-   
-
-              // setting the key for the text area entry
-              var key8 = $("#8")
-                // setting an "on-click" event listener for the save button in the 10:00 AM time slot
-                $("#button8").on("click", function(){
-                  // Setting the variable called "firstTimeSlot" for anything inputed (value) in the 10:00 AM time slot
-                  var eighthTimeSlot = $("#8").val()
-                  // saving the entry to local storage upon on-click
-                  localStorage.setItem("#8", eighthTimeSlot)
-                })
-              // Retrieving the entry from local storage upon page refresh
-              eighthTimeSlot = localStorage.getItem("#8");
-              $("#8").text(eighthTimeSlot)
+      // 16:00 PM JS/JQUERY
+      // setting the key for the text area entry
+      var key8 = $("#16")
+        // setting an "on-click" event listener for the save button in the 10:00 AM time slot
+        $("#button8").on("click", function(){
+          // Setting the variable called "firstTimeSlot" for anything inputed (value) in the 10:00 AM time slot
+          var eighthTimeSlot = $("#16").val()
+            // saving the entry to local storage upon on-click
+            localStorage.setItem("#16", eighthTimeSlot)
+        })
+        // Retrieving the entry from local storage upon page refresh
+        eighthTimeSlot = localStorage.getItem("#16");
+        $("#16").text(eighthTimeSlot)
   
 
-
-
-              // setting the key for the text area entry
-              var key9 = $("#9")
-                // setting an "on-click" event listener for the save button in the 10:00 AM time slot
-                $("#button9").on("click", function(){
-                  // Setting the variable called "firstTimeSlot" for anything inputed (value) in the 10:00 AM time slot
-                  var ninthTimeSlot = $("#9").val()
-                  // saving the entry to local storage upon on-click
-                  localStorage.setItem("#9", ninthTimeSlot)
-                })
-              // Retrieving the entry from local storage upon page refresh
-              ninthTimeSlot = localStorage.getItem("#9");
-              $("#9").text(ninthTimeSlot)
-            </script>
+      // 17:00 PM JS/JQUERY
+      // setting the key for the text area entry
+      var key9 = $("#17")
+        // setting an "on-click" event listener for the save button in the 10:00 AM time slot
+        $("#button9").on("click", function(){
+          // Setting the variable called "firstTimeSlot" for anything inputed (value) in the 10:00 AM time slot
+          var ninthTimeSlot = $("#17").val()
+            // saving the entry to local storage upon on-click
+            localStorage.setItem("#17", ninthTimeSlot)
+        })
+        // Retrieving the entry from local storage upon page refresh
+        ninthTimeSlot = localStorage.getItem("#17");
+        $("#17").text(ninthTimeSlot)
+    </script>
 
     <!-- Jquery for time & date on jumbotron -->
     <script type="text/javascript">
@@ -286,6 +305,5 @@
       });
     </script>
 
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
   </body>
 </html>
